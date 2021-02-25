@@ -73,8 +73,8 @@ class Gui:
             pygame.draw.line(self.display, (Cube.line_colors[index]), points[0], points[1], 2)
 
     
-    def drawText(self, text: str, position: tuple, aa=True, color=(255, 255, 255)) -> None:
-        textSurface = self.font.render(text, aa, color)
+    def drawText(self, text: str, position: tuple) -> None:
+        textSurface = self.font.render(text, True, (255, 255, 255))
         textRectangle = textSurface.get_rect()
         
         for index, axis in enumerate(['x', 'y']):
@@ -86,7 +86,7 @@ class Gui:
     def displayInfo(self) -> None:
         self.drawText(
             text=f'FPS - {self.clock.get_fps():.2f}',
-            position=(8, 5), color=(255, 255, 255)
+            position=(8, 5)
         )
         
         self.drawText('[U/J]  -  X rotation (pitch)', (8, 30),)
@@ -162,4 +162,4 @@ def generalRotation(rotation: tuple):
 
 if __name__ == '__main__':
     gui = Gui(resolution=(800, 800), fps=60)
-    gui.mainLoop(1)
+    gui.mainLoop(rotation_speed=1)
