@@ -97,11 +97,11 @@ class Gui:
 
     def mainLoop(self, rotation_speed) -> None:
         while True:
-            pressed_keys = pygame.key.get_pressed()
-
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     exit()
+
+            pressed_keys = pygame.key.get_pressed()
 
             if pressed_keys[pygame.K_u]:   Cube.updateVerticies(generalRotation((rotation_speed, 0, 0)))
             elif pressed_keys[pygame.K_i]: Cube.updateVerticies(generalRotation((0, rotation_speed, 0)))
