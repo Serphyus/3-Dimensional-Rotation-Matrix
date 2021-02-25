@@ -121,7 +121,7 @@ class Gui:
 
 
 
-def generalRotation(rotation: tuple):
+def generalRotation(rotation: tuple) -> list:
     """
      :param rotation: roll, yaw, pitch rotation values (α, β, γ)
 
