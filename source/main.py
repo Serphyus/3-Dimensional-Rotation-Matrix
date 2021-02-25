@@ -39,6 +39,7 @@ class Cube:
         cls.verticies = points
 
 
+
 class Gui:
     def __init__(self, resolution: tuple, fps: int):
         pygame.init()
@@ -54,7 +55,7 @@ class Gui:
         self.clock = pygame.time.Clock()
         self.fps = fps
 
-        self.font = pygame.font.Font(os.path.join(os.path.abspath(os.path.dirname(__file__)), 'coolvetica.ttf'), 20)
+        self.font = pygame.font.Font(os.path.join(os.path.abspath(os.path.dirname(__file__)), 'coolvetica.ttf'), 25)
     
 
     def drawCube(self) -> None:
@@ -89,9 +90,9 @@ class Gui:
             position=(8, 5)
         )
         
-        self.drawText('[U/J]  -  X rotation (pitch)', (8, 30),)
-        self.drawText('[I/K]   -  Y rotation (roll)', (8, 50),)
-        self.drawText('[O/L]  -  Z rotation (yaw)', (8, 70),)
+        self.drawText('X rotation - U/J', (8, 30),)
+        self.drawText('Y rotation - I/K', (8, 50),)
+        self.drawText('Z rotation - O/L', (8, 70),)
 
 
 
@@ -116,8 +117,6 @@ class Gui:
             pygame.display.update()
 
             self.clock.tick(self.fps)
-
-
 
 
 
@@ -158,6 +157,8 @@ def generalRotation(rotation: tuple) -> list:
         output.append(new_point)
     
     return output
+
+
 
 
 if __name__ == '__main__':
