@@ -29,23 +29,15 @@ class Cube:
     point_colors = [[randint(0, 255) for i in range(3)] for i in range(len(verticies))]
     line_colors = [[randint(0, 255) for i in range(3)] for i in range(len(edges))]
 
-    @classmethod
-    def updateVerticies(cls, points: list) -> None:
-        if type(points) != list:
-            raise TypeError('points argument must be a list')
-        elif len(points) != len(cls.verticies):
-            raise IndexError(f'poinst must contain {len(cls.verticies)} [x, y, z] cordinates')
-        cls.verticies = points
-
 
     @classmethod
     def rotateCube(cls, rotation: tuple) -> None:
         """
-        :param rotation: roll, yaw, pitch rotation values (α, β, γ)
+        :param rotation: pitch, yaw, roll rotation values (γ, β, α)
 
-        α: roll  (z rotation)
-        β: yaw   (y rotation)
         γ: pitch (x rotation)
+        β: yaw   (y rotation)
+        α: roll  (z rotation)
 
                             [ cosα -sinα  0 ] [ cosβ   0   sinβ ] [ 1   0     0   ]
         Rz(α) Ry(β) Rx(γ) = [ sinα  cosα  0 ] [ 0      1    0   ] [ 0  cosγ -sinγ ]
