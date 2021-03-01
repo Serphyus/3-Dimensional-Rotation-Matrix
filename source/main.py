@@ -72,7 +72,7 @@ class Cube:
 
 
 class Gui:
-    def __init__(self, resolution: tuple, fps: int, display_verticies: bool, display_edges: bool):
+    def __init__(self, resolution: tuple, fps: int, scrolling_sensitivity: int, display_verticies: bool, display_edges: bool):
         pygame.init()
 
         self.display = pygame.display.set_mode(resolution)
@@ -82,10 +82,11 @@ class Gui:
         # add another axis so that z can be displayed as y
         self.center.append(self.center[1])
 
-        self.upscale = 100
+        self.upscale = int(resolution[0] / 8)
         self.clock = pygame.time.Clock()
         self.fps = fps
 
+        self.scrolling_sensitivity = scrolling_sensitivity
         self.display_verticies = display_verticies
         self.display_edges = display_edges
 
@@ -139,6 +140,9 @@ class Gui:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     exit()
+                
+                if event.type == pygame.MOUSEWHEEL:
+                    self.upscale += (event.y * self.scrolling_sensitivity)
 
             pressed_keys = pygame.key.get_pressed()
 
@@ -160,8 +164,8 @@ class Gui:
 
 if __name__ == '__main__':
     gui = Gui(
-        resolution=(800, 800), fps=60,
-        display_edges=True, display_verticies=True
+        resolution=(600, 600), fps=60, scrolling_sensitivity=3,
+        display_verticies=False, display_edges=True
     )
     
     gui.mainLoop(rotation_speed=1)
