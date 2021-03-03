@@ -25,7 +25,6 @@ class Cube:
         (5, 1), (5, 4), (5, 6)
     )
 
-    orientation = [0, 0, 0]
     point_colors = [[randint(0, 255) for i in range(3)] for i in range(len(verticies))]
     line_colors = [[randint(0, 255) for i in range(3)] for i in range(len(edges))]
 
@@ -165,7 +164,7 @@ class Gui:
 if __name__ == '__main__':
     gui = Gui(
         resolution=(600, 600), fps=60, scrolling_sensitivity=3,
-        display_verticies=False, display_edges=True
+        display_verticies=True, display_edges=True
     )
     
     gui.mainLoop(rotation_speed=1)
