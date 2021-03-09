@@ -1,6 +1,8 @@
 import os
 import json
-from dumb_shit import Gui, Model
+from Gui import Gui
+from Model import Model
+from random import uniform
 
 
 
@@ -14,7 +16,7 @@ if __name__ == '__main__':
     model_choice = int(input('\n> '))
 
     with open(os.path.join(models_path, available_models[model_choice-1]), 'r') as _file:
-        cube = Model(**json.load(_file))
+        model = Model(**json.load(_file))
 
 
     gui = Gui(
@@ -27,7 +29,7 @@ if __name__ == '__main__':
         display_edges=True
     )
 
-    gui.addModel(cube)
+    gui.addModel(model)
 
     while True:
         gui.handleEvents()
