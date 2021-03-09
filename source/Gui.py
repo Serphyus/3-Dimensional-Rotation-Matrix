@@ -75,7 +75,6 @@ class Gui:
 
 
     def displayInfo(self) -> None:
-        # FPS
         info = [
             [f'FPS - {self.clock.get_fps():.2f}', (8, 5)],
             ['X rotation - U/J', (8, 30)],
@@ -99,12 +98,12 @@ class Gui:
             
             rotation = [0, 0, 0]
             
-            if keys[pygame.K_u]: rotation[0] += self.rotation_speed #self.rotateAll((self.rotation_speed, 0, 0))
-            if keys[pygame.K_i]: rotation[1] += self.rotation_speed #self.rotateAll((0, self.rotation_speed, 0))
-            if keys[pygame.K_o]: rotation[2] += self.rotation_speed #self.rotateAll((0, 0, self.rotation_speed))
-            if keys[pygame.K_j]: rotation[0] -= self.rotation_speed #self.rotateAll((-self.rotation_speed, 0, 0))
-            if keys[pygame.K_k]: rotation[1] -= self.rotation_speed #self.rotateAll((0, -self.rotation_speed, 0))
-            if keys[pygame.K_l]: rotation[2] -= self.rotation_speed #self.rotateAll((0, 0, -self.rotation_speed))
+            if keys[pygame.K_u]: rotation[0] += self.rotation_speed
+            if keys[pygame.K_i]: rotation[1] += self.rotation_speed
+            if keys[pygame.K_o]: rotation[2] += self.rotation_speed
+            if keys[pygame.K_j]: rotation[0] -= self.rotation_speed
+            if keys[pygame.K_k]: rotation[1] -= self.rotation_speed
+            if keys[pygame.K_l]: rotation[2] -= self.rotation_speed
 
             self.rotateAll(rotation)
 
@@ -114,11 +113,9 @@ class Gui:
 
 
     def updateDisplay(self) -> None:
-        # draw 3d models and display info on top
         self.drawModels()
         self.displayInfo()
         
-        # update the display
         pygame.display.update()
         self.display.fill((0, 0, 0))
         
