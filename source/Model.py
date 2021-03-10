@@ -15,11 +15,7 @@ class Model:
 
     def rotateModel(self, rotation: tuple) -> None:
         for index, value in enumerate(rotation):
-            self.rotation[index] += value
-            if self.rotation[index] > 360:
-                self.rotation[index] -= 360
-            elif self.rotation[index] < -360:
-                self.rotation[index] += 360
+            self.rotation[index] = (self.rotation[index]+value) % 360
 
 
     def modifyVerticies(self, modified_verticies: list) -> None:
@@ -36,7 +32,7 @@ class Model:
     
 
     def revertShape(self) -> None:
-        self.modifications = [0, 0 ,0]
+        self.modifications = [[0, 0, 0] for i in range(len(self.verticies))]
 
 
     def getModel(self) -> list:
