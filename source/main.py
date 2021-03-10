@@ -19,15 +19,7 @@ if __name__ == '__main__':
         model = Model(**json.load(_file))
 
 
-    gui = Gui(
-        resolution=(600, 600),
-        fps=60,
-        path=working_path,
-        scrolling_sensitivity=3,
-        rotation_speed=1,
-        display_verticies=True,
-        display_edges=True
-    )
+    gui = Gui(working_path)
 
     gui.addModel(model)
 
