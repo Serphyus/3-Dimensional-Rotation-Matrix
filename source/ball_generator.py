@@ -7,7 +7,7 @@ from math import radians, cos, sin
 radius = int(input('radius: '))
 rings = int(input('rings: '))
 points = int(input('ring_edges: '))
-color = input('color: ').split()
+color = [int(i) for i in input('color: ').split()]
 
 
 model = {
@@ -15,7 +15,7 @@ model = {
         'verticies': [],
         'edges': []
     },
-    'color': [color]
+    'color': color
 }
 
 

@@ -20,7 +20,6 @@ if __name__ == '__main__':
 
 
     gui = Gui(working_path)
-
     gui.addModel(model)
 
     while True:
