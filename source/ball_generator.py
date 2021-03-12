@@ -6,7 +6,6 @@ from math import radians, cos, sin
 
 radius = int(input('radius: '))
 rings = int(input('rings: '))
-edges = int(input('ring_edges: '))
 color = [int(i) for i in input('color: ').split()]
 
 model = {
@@ -20,8 +19,8 @@ model = {
 
 for vertical in range(rings):
     v_angle = radians((360 / rings) * vertical)
-    for horizontal in range(edges):
-        h_angle = radians((360 / edges) * horizontal)
+    for horizontal in range(rings):
+        h_angle = radians((360 / rings) * horizontal)
 
         x = radius * cos(v_angle) * cos(h_angle)
         y = radius * cos(v_angle) * sin(h_angle)
