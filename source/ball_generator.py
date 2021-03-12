@@ -25,7 +25,7 @@ for vertical in range(rings):
 
         x = radius * cos(v_angle) * cos(h_angle)
         y = radius * cos(v_angle) * sin(h_angle)
-        z = radius * sin(v_angle) * radius
+        z = radius * sin(v_angle)
 
         model['shape']['verticies'].append([x, y, z])
 
