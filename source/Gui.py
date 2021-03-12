@@ -50,7 +50,7 @@ class Gui:
             if self.config.display_verticies:
                 for cordinates in verticies:
                     point = tuple([(self.center[i] + cordinates[i * 2] * self.upscale + 1) for i in range(2)])
-                    pygame.draw.circle(self.display, model.color, point, 3)
+                    pygame.draw.circle(self.display, model.color, point, self.config.verticy_size)
         
             if self.config.display_edges:
                 for edge in edges:
