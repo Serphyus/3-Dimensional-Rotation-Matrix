@@ -30,5 +30,5 @@ for vertical in range(rings):
 
 
 current_path = os.path.abspath(os.path.dirname(__file__))
-with open(os.path.join(current_path, 'assets/models/ball.json'), 'w') as _file:
+with open(os.path.join(current_path, 'assets/models/sphere.json'), 'w') as _file:
     json.dump(model, _file, indent=4)
