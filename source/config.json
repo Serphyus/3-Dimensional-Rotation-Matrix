@@ -2,12 +2,9 @@
     "resolution": [600, 600],
     "fps": 60,
     "font_path": "assets/coolvetica.ttf",
-
     "verticy_size": 1,
-
     "scrolling_sensitivity": 3,
     "rotation_speed": 1,
-    
     "display_info": true,
     "display_verticies": true,
     "display_edges": true
