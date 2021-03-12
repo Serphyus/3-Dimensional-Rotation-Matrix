@@ -7,10 +7,8 @@ class Model:
         self.verticies = shape.get('verticies', [])
         self.edges = shape.get('edges', [])
         
-        self.modifications = [[0, 0, 0] for i in range(len(self.verticies))]
-        
-        self.color = color
         self.rotation = [0, 0, 0]
+        self.color = color
     
 
     def rotateModel(self, rotation: tuple) -> None:
@@ -18,21 +16,8 @@ class Model:
             self.rotation[index] = (self.rotation[index]+value) % 360
 
 
-    def modifyVerticies(self, modified_verticies: list) -> None:
-        if len(modified_verticies) != len(self.verticies):
-            raise IndexError('modified_verticies argument must be the same lenght as Model.verticies')
-        for index, verticy in enumerate(modified_verticies):
-            if verticy != None:
-                for axis, value in enumerate(verticy):
-                    self.modifications[index][axis] = value
-
-
     def revertRotation(self) -> None:
         self.rotation = [0, 0, 0]
-    
-
-    def revertShape(self) -> None:
-        self.modifications = [[0, 0, 0] for i in range(len(self.verticies))]
 
 
     def getModel(self) -> list:
@@ -63,17 +48,13 @@ class Model:
         ]
 
 
-        new_verticies = [v for v in self.verticies]
-        
-        for index, verticy in enumerate(self.modifications):
-            new_verticies[index] = [new_verticies[index][i] + verticy[i] for i in range(3)]
-
-        for index, (x, y, z) in enumerate(new_verticies):
+        _verticies = [v for v in self.verticies]
+        for index, (x, y, z) in enumerate(_verticies):
             new_point = []
             for vector in matrix:
                 new_point.append(
                     ((x * vector[0]) + (y * vector[1]) + (z * vector[2]))
                 )
-            new_verticies[index] = new_point
+            _verticies[index] = new_point
 
-        return [new_verticies, self.edges]
+        return [_verticies, self.edges]

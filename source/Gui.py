@@ -106,7 +106,6 @@ class Gui:
             if keys[pygame.K_r]:
                 for model in self.models:
                     model.revertRotation()
-                    model.revertShape()
 
 
     def updateDisplay(self) -> None:
